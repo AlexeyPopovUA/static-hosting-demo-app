@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hosting Demo</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <p class="label">Static hosting demo app</p>
+      <h1 id="title">Home</h1>
+      <p class="lead">
+        Served from <code id="host"></code> via the reusable deploy workflow.
+      </p>
+
+      <nav class="nav" aria-label="Demo routes">
+        <a href="/" data-route="/">Home</a>
+        <a href="/about" data-route="/about">About</a>
+        <a href="/status" data-route="/status">Status</a>
+      </nav>
+
+      <section id="content" class="content"></section>
+
+      <p class="meta">
+        Push to <code>main</code> updates production.
+        Open a PR for a branch preview URL.
+      </p>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

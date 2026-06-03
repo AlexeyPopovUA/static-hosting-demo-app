@@ -1,0 +1,15 @@
+name: Cleanup
+
+on:
+  delete:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup:
+    if: github.event.ref_type == 'branch' || github.event.pull_request.merged
+    uses: AlexeyPopovUA/static-hosting-for-vibe-coders/.github/workflows/cleanup-branch.yml@main
+    with:
+      app-slug: hosting-demo
+      branch: ${{ github.event.ref || github.head_ref }}
+    secrets: inherit

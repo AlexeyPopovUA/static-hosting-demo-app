@@ -1,0 +1,16 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  deploy:
+    uses: AlexeyPopovUA/static-hosting-for-vibe-coders/.github/workflows/deploy-app.yml@main
+    with:
+      app-slug: hosting-demo
+      build-command: pnpm build
+      output-dir: dist
+      base-domain: demo.oleksiipopov.com
+    secrets: inherit

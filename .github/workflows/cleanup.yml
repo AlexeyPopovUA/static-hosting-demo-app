@@ -11,9 +11,9 @@ permissions:
 
 jobs:
   cleanup:
-    if: github.event.ref_type == 'branch' || github.event.pull_request.merged
+    if: github.event_name == 'pull_request' || github.event.ref_type == 'branch'
     uses: AlexeyPopovUA/static-hosting-for-vibe-coders/.github/workflows/cleanup-branch.yml@main
     with:
       app-slug: hosting-demo
-      branch: ${{ github.event.ref || github.head_ref }}
+      branch: ${{ github.event.ref_name || github.head_ref }}
     secrets: inherit

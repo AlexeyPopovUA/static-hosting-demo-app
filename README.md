@@ -1,12 +1,16 @@
 # Static Hosting Demo App
 
-Minimal SPA used to test [static-hosting-for-vibe-coders](https://github.com/AlexeyPopovUA/static-hosting-for-vibe-coders).
+Minimal static SPA that consumes the [static-hosting-for-vibe-coders](https://github.com/AlexeyPopovUA/static-hosting-for-vibe-coders) platform. It builds with `pnpm`, deploys through reusable GitHub Actions workflows (`deploy-app.yml` / `cleanup-branch.yml`), and serves from a shared S3 bucket behind one CloudFront distribution — production on `main`, branch previews on pull requests.
+
+**Read the write-up:** [Static hosting for vibe coders: one platform, many demo apps](https://oleksiipopov.com/blog/static-hosting-for-vibe-coders/) — architecture, requirements, and how external app repos plug in.
+
+[![Production deploy on demo.oleksiipopov.com](docs/hosting-demo-production.png)](https://hosting-demo.demo.oleksiipopov.com)
 
 ## URLs
 
 | Environment | URL |
 |-------------|-----|
-| Production | `https://hosting-demo.demo.oleksiipopov.com` |
+| Production | [hosting-demo.demo.oleksiipopov.com](https://hosting-demo.demo.oleksiipopov.com) |
 | Branch preview | `https://hosting-demo--{branch}.dev.demo.oleksiipopov.com` |
 
 ## Local build
@@ -23,7 +27,7 @@ Output goes to `dist/`. The build copies `public/` and duplicates `index.html` a
 
 Pushes to `main` deploy production content. Pull requests deploy a branch preview and post the preview URL as a comment.
 
-Requires the repository variable `AWS_AUTH_ROLE` and OIDC trust for this repo on the shared IAM role.
+Requires the repository variable `AWS_AUTH_ROLE` and OIDC trust for this repo on the shared IAM role. Bucket and CloudFront distribution IDs are read from SSM at runtime — see the [platform spec](https://github.com/AlexeyPopovUA/static-hosting-for-vibe-coders/blob/main/docs/SPEC.md).
 
 ## Manual E2E checklist (feature branch + cleanup)
 

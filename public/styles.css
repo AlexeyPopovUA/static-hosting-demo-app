@@ -60,6 +60,17 @@ h1 {
   line-height: 1.6;
 }
 
+.meta a,
+.content a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.meta a:hover,
+.content a:hover {
+  text-decoration: underline;
+}
+
 .nav {
   display: flex;
   flex-wrap: wrap;

@@ -1,3 +1,6 @@
+const ARTICLE_URL = 'https://oleksiipopov.com/blog/static-hosting-for-vibe-coders/';
+const ARTICLE_TITLE = 'Static hosting for vibe coders: one platform, many demo apps';
+
 const routes = {
   '/': {
     title: 'Home',
@@ -5,17 +8,22 @@ const routes = {
       <p>This is a tiny client-side router demo. Try the links above or open
       <a href="/about">/about</a> directly — the URL stays clean thanks to branch-level
       <code>404.html</code> SPA fallback.</p>
+      <p>Background:
+      <a href="${ARTICLE_URL}" rel="noopener noreferrer" target="_blank">${ARTICLE_TITLE}</a>.</p>
     `,
   },
   '/about': {
     title: 'About',
     html: `
-      <p>Built to exercise the static hosting platform:</p>
+      <p>Built to exercise the
+      <a href="https://github.com/AlexeyPopovUA/static-hosting-for-vibe-coders" rel="noopener noreferrer" target="_blank">static hosting platform</a>:</p>
       <ul>
         <li>Production deploy on <code>main</code></li>
         <li>Branch previews on pull requests</li>
         <li>History-based SPA routing</li>
       </ul>
+      <p>Architecture and requirements:
+      <a href="${ARTICLE_URL}" rel="noopener noreferrer" target="_blank">${ARTICLE_TITLE}</a>.</p>
     `,
   },
   '/status': {

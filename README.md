@@ -69,16 +69,16 @@ curl -sS -o /dev/null -w "%{http_code}\n" \
 - [ ] Preview URL returns **200**
 - [ ] Page shows your test change (if you added a marker)
 
-### 3. Close PR and run cleanup
+### 3. Delete branch and run cleanup
 
 ```bash
-gh pr close <number> --comment "E2E verified; testing cleanup."
+git push origin --delete test/feature-branch-e2e
 gh run list --workflow cleanup.yml --limit 3
 gh run watch <cleanup-run-id> --exit-status
 ```
 
-- [ ] **Cleanup** workflow runs on `pull_request` (closed) and succeeds
-- [ ] Reusable workflow receives `branch` = PR head ref (`test/feature-branch-e2e`)
+- [ ] **Cleanup** workflow runs on `delete` (branch) and succeeds
+- [ ] Reusable workflow receives `branch` = `refs/heads/test/feature-branch-e2e`
 
 ### 4. Verify cleanup
 
@@ -97,12 +97,8 @@ curl -sS -o /dev/null -w "%{http_code}\n" \
 ### 5. Tear down
 
 ```bash
-git push origin --delete test/feature-branch-e2e
+gh pr close <number> --comment "E2E verified."
 git checkout main
 ```
 
-- [ ] Remote test branch deleted (optional: also deletes branch via `delete` event cleanup)
-
-### Branch delete cleanup (optional)
-
-Deleting the remote branch without closing a PR first triggers **Cleanup** on the `delete` event with `ref_name`. Same S3 prefix should be removed if anything was left behind.
+- [ ] PR closed (optional; cleanup is driven by branch deletion, not PR close)

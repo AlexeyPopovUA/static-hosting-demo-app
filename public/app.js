@@ -1,5 +1,5 @@
 const ARTICLE_URL = 'https://oleksiipopov.com/blog/static-hosting-for-vibe-coders/';
-const ARTICLE_TITLE = 'Static hosting for vibe coders: one platform, many demo apps';
+const ARTICLE_TITLE = 'Static hosting for vibe coders: one platform, many apps';
 
 const routes = {
   '/': {

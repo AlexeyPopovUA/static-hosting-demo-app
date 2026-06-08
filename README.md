@@ -2,7 +2,7 @@
 
 Minimal static SPA that consumes the [static-hosting-for-vibe-coders](https://github.com/AlexeyPopovUA/static-hosting-for-vibe-coders) platform. It builds with `pnpm`, deploys through reusable GitHub Actions workflows (`deploy-app.yml` / `cleanup-branch.yml`), and serves from a shared S3 bucket behind one CloudFront distribution — production on `main`, branch previews on pull requests.
 
-**Read the write-up:** [Static hosting for vibe coders: one platform, many demo apps](https://oleksiipopov.com/blog/static-hosting-for-vibe-coders/) — architecture, requirements, and how external app repos plug in.
+**Read the write-up:** [Static hosting for vibe coders: one platform, many apps](https://oleksiipopov.com/blog/static-hosting-for-vibe-coders/) — architecture, requirements, and how external app repos plug in.
 
 [![Production deploy on demo.oleksiipopov.com](docs/hosting-demo-production.png)](https://hosting-demo.demo.oleksiipopov.com)
 

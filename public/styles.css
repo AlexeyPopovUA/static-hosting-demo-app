@@ -49,6 +49,17 @@ main {
   color: var(--accent);
 }
 
+.e2e-badge {
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0f172a;
+  background: #fbbf24;
+  border: 1px solid #f59e0b;
+}
+
 h1 {
   margin: 0 0 0.75rem;
   font-size: clamp(2rem, 6vw, 2.75rem);
